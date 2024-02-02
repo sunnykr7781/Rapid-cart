@@ -12,24 +12,24 @@ const Product = () => {
       ></ListItem>
       <ListItem
         data={{
-          price: 499,
-          discountedprice: 399,
+          price: 199,
+          discountedprice: 99,
           thumbnail: "placeholder.png",
           title: "title of the item",
         }}
       ></ListItem>
       <ListItem
         data={{
-          price: 499,
-          discountedprice: 399,
+          price: 2499,
+          discountedprice: 1399,
           thumbnail: "placeholder.png",
           title: "title of the item",
         }}
       ></ListItem>
       <ListItem
         data={{
-          price: 499,
-          discountedprice: 399,
+          price: 1900,
+          discountedprice: 1699,
           thumbnail: "placeholder.png",
           title: "title of the item",
         }}

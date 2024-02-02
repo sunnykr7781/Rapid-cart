@@ -11,9 +11,9 @@ const ListItem = ({ data }) => {
         />
         <div className="item-card__information">
           <div className="pricing">
-            <span>{data.discountedprice}</span>
+            <span>₹{data.discountedprice}</span>
             <small>
-              <strike>{data.price}</strike>
+              <strike>₹{data.price}</strike>
             </small>
           </div>
           <div className={data.title}>
