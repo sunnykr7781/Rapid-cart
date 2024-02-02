@@ -1,7 +1,9 @@
+import ListItems from "./components/ListItem"
 const App = () => {
   return (
     <>
-      <h1>hey there</h1>
+     
+      <ListItems></ListItems>
     </>
   )
 }
