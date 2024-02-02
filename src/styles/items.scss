@@ -52,3 +52,14 @@ button.cart {
   width: 100%;
   justify-content: space-between;
 }
+.product-list {
+  padding: 16px 32px;
+  width: 100%;
+  min-height: 100vh;
+
+  &--wrapper {
+      display: flex;
+      padding-left: 40px;
+      flex-wrap: wrap;
+  }
+}

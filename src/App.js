@@ -1,9 +1,8 @@
-import ListItems from "./components/ListItem"
+import Product from "./components/Products/Product"
 const App = () => {
   return (
     <>
-     
-      <ListItems></ListItems>
+      <Product />
     </>
   )
 }
