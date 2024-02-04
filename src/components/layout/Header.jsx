@@ -15,7 +15,7 @@ const Header = () => {
           </div>
         </div>
         <div className="cart">
-          <h4>cart</h4>
+        <span data-items={0}>Cart</span>
           <i class="ri-shopping-cart-2-line"></i>
         </div>
       </div>

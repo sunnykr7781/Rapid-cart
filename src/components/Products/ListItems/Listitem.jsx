@@ -1,6 +1,6 @@
 import AddToCartIcon from "../../../assets/add_cart.svg"
 const ListItem = ({ data }) => {
-//   console.log(data)
+  console.log(data)
   return (
     <>
       <div className="item-card">
@@ -11,13 +11,13 @@ const ListItem = ({ data }) => {
         />
         <div className="item-card__information">
           <div className="pricing">
-            <span>₹{data.discountedprice}</span>
+            <span>₹{data.discountedPrice}</span>
             <small>
               <strike>₹{data.price}</strike>
             </small>
           </div>
           <div className={data.title}>
-            <h4>product title</h4>
+            <h4>{data.title}</h4>
           </div>
         </div>
         <button className="cart">
