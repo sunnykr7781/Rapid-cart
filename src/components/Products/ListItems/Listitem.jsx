@@ -1,6 +1,6 @@
 import { useState } from "react"
 import AddToCartIcon from "../../../assets/add_cart.svg"
-const ListItem = ({ data }) => {
+const ListItem = ({ data, updatetitle }) => {
   // console.log(data)
   const [counter, setCounter] = useState(0)
   const addcounter = () => {
@@ -35,13 +35,18 @@ const ListItem = ({ data }) => {
           </div>
         </div>
         <div>
+          <button className="buttonn" onClick={()=>{
+            updatetitle(data.id)
+          }}>
+            <span>update title</span>
+          </button>
           {/* conditional rendering */}
           {counter > 0 ? (
             <div className="cartaddon">
               <button onClick={subcounter}>
                 <span>-</span>
               </button>
-              <span>{counter}</span>
+              <span className="white">{counter}</span>
               <button>
                 <span onClick={addcounter}>+</span>
               </button>

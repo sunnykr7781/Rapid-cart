@@ -22,13 +22,28 @@ const Product = () => {
         console.log(error)
       })
   }, [])
+  const updatetitle = async (itemid) => {
+    try {
+      const response = await axios.patch(
+        `https://rapid-cart-ded02-default-rtdb.firebaseio.com/data/${itemid}.json`,
+        {
+          title: "new title",
+        }
+      )
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className="product-list">
       <div className="product-list--wrapper">
         {data.map((e) => {
-          return <ListItem data={e} key={e.id}></ListItem>
+          return (
+            <ListItem data={e} key={e.id} updatetitle={updatetitle}></ListItem>
+          )
         })}
+        Console.log(response)
       </div>
     </div>
   )

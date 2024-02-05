@@ -75,10 +75,19 @@ button.cart {
     background-color: $primary;
     text-align: center;
   }
+
+  .white {
+    background-color: white;
+  }
   button {
     border: none;
     display: flex;
     align-items: center;
   }
 }
-
+.buttonn {
+  // height: 22vh;
+  padding: 2.5px 0vw;
+  width: 100%;
+  // color: blue;
+}
