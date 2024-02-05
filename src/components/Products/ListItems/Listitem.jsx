@@ -1,6 +1,20 @@
+import { useState } from "react"
 import AddToCartIcon from "../../../assets/add_cart.svg"
 const ListItem = ({ data }) => {
   console.log(data)
+  const [counter, setCounter] = useState(0)
+  const addcounter = () => {
+    setCounter(counter + 1)
+  }
+  const subcounter = () => {
+    if (counter < 1) {
+      return
+    }
+    setCounter(counter - 1)
+  }
+  // const addcounterbyone = () =>{
+
+  // }
   return (
     <>
       <div className="item-card">
@@ -20,10 +34,25 @@ const ListItem = ({ data }) => {
             <h4>{data.title}</h4>
           </div>
         </div>
-        <button className="cart">
-          <span>add to cart </span>
-          <img src={AddToCartIcon} alt="cart icon" />
-        </button>
+        <div>
+          {/* conditional rendering */}
+          {counter > 0 ? (
+            <div className="cartaddon">
+              <button onClick={subcounter}>
+                <span>-</span>
+              </button>
+              <span>{counter}</span>
+              <button>
+                <span onClick={addcounter}>+</span>
+              </button>
+            </div>
+          ) : (
+            <button className="cart" onClick={addcounter}>
+              <span>add to cart </span>
+              <img src={AddToCartIcon} alt="cart icon" />
+            </button>
+          )}
+        </div>
       </div>
     </>
   )

@@ -45,7 +45,7 @@ button.cart {
   border-radius: 0px 0px 4px 4px;
   border: unset;
   font-size: 14px;
-  padding: 8px 16px;
+  padding: 4px 16px;
   color: $white;
   display: flex;
   align-items: center;
@@ -61,5 +61,23 @@ button.cart {
     display: flex;
     padding-left: 40px;
     flex-wrap: wrap;
+  }
+}
+.cartaddon {
+  // font-size: 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  span {
+    font-size: 1.5vw;
+    height: 2.1vw;
+    width: 2.1vw;
+    background-color: $primary;
+    text-align: center;
+  }
+  button {
+    border: none;
+    display: flex;
+    align-items: center;
   }
 }
