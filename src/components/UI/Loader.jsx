@@ -1,7 +1,9 @@
 import React from "react"
+import ReactDOM from "react-dom"
 
 const Loader = () => {
-  return (
+  // use of portal to create child node 
+  return ReactDOM.createPortal(
     <>
       <div className="loader-overlay"></div>
       <div className="loading-dots">
@@ -10,7 +12,8 @@ const Loader = () => {
         <div className="loading-dots--dot"></div>
         <div className="loading-dots--dot"></div>
       </div>
-    </>
+    </>,
+    document.getElementById("loader-root")
   )
 }
 
