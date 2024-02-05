@@ -1,29 +1,27 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ListItem from "./ListItems/Listitem"
+import axios from "axios"
 const Product = () => {
-  let [data, setData] = useState([
-    {
-      price: 499,
-      discountedprice: 399,
-      thumbnail: "placeholder.png",
-      title: "title of the item 1",
-      id: 0,
-    },
-    {
-      price: 199,
-      discountedprice: 99,
-      thumbnail: "placeholder.png",
-      title: "title of the item 2",
-      id: 1,
-    },
-    {
-      price: 449,
-      discountedprice: 249,
-      thumbnail: "placeholder.png",
-      title: "title of the item 3",
-      id: 2,
-    },
-  ])
+  let [data, setData] = useState([])
+
+  useEffect(() => {
+    axios
+      .get("https://rapid-cart-ded02-default-rtdb.firebaseio.com/data.json")
+      .then((response) => {
+        const result = response.data
+        const transformedresult = result.map((data, index) => {
+          return {
+            ...data,
+            id: index,
+          }
+        })
+        setData(transformedresult)
+        // console.log(transformedresult)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }, [])
 
   return (
     <div className="product-list">
