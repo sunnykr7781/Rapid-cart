@@ -30,6 +30,10 @@ const Product = () => {
           title: "new title",
         }
       )
+      let newdata = [...data]
+      // let index = newdata.findIndex((e) => e.id === itemid)
+      newdata[itemid]["title"] = "newtitle"
+      setData(newdata)
     } catch (error) {
       console.log(error)
     }
