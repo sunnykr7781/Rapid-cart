@@ -1,7 +1,10 @@
 import { useState } from "react"
 import AddToCartIcon from "../../../assets/add_cart.svg"
+import Modal from "../../UI/Modal"
 const ListItem = ({ data, updatetitle }) => {
   // console.log(data)
+
+  const [showmodal, setShowmodal] = useState(false)
   const [counter, setCounter] = useState(0)
   const addcounter = () => {
     setCounter(counter + 1)
@@ -12,12 +15,12 @@ const ListItem = ({ data, updatetitle }) => {
     }
     setCounter(counter - 1)
   }
-  // const addcounterbyone = () =>{
-
-  // }
+  const handleModal = () => {
+    setShowmodal((e) => !e)
+  }
   return (
     <>
-      <div className="item-card">
+      <div onClick={handleModal} className="item-card">
         <img
           className="img-fluid"
           src={`./assets/${data.thumbnail}`}
@@ -35,9 +38,12 @@ const ListItem = ({ data, updatetitle }) => {
           </div>
         </div>
         <div>
-          <button className="buttonn" onClick={()=>{
-            updatetitle(data.id)
-          }}>
+          <button
+            className="buttonn"
+            onClick={() => {
+              updatetitle(data.id)
+            }}
+          >
             <span>update title</span>
           </button>
           {/* conditional rendering */}
@@ -59,6 +65,7 @@ const ListItem = ({ data, updatetitle }) => {
           )}
         </div>
       </div>
+      {showmodal && <Modal onclose={handleModal} />}
     </>
   )
 }

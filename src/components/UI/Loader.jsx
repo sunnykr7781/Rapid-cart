@@ -1,11 +1,23 @@
 import React from "react"
 import ReactDOM from "react-dom"
+export const Backdrop = (props) => {
+  const handleclick = () => {
+    if (props.onclose) {
+      props.onclose()
+    }
+  }
+  return (
+    <>
+      <div onClick={handleclick} className="loader-overlay"></div>
+    </>
+  )
+}
 
 const Loader = () => {
-  // use of portal to create child node 
+  // use of portal to create child node
   return ReactDOM.createPortal(
     <>
-      <div className="loader-overlay"></div>
+      <Backdrop />
       <div className="loading-dots">
         <div>loading</div>
         <div className="loading-dots--dot"></div>
@@ -18,3 +30,4 @@ const Loader = () => {
 }
 
 export default Loader
+// export {Backdrop}
