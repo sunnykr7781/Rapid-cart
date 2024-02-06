@@ -6,13 +6,15 @@ const ListItem = ({ data, updatetitle }) => {
 
   const [showmodal, setShowmodal] = useState(false)
   const [counter, setCounter] = useState(0)
-  const addcounter = () => {
+  const addcounter = (event) => {
+    event.stopPropagation()
     setCounter(counter + 1)
   }
-  const subcounter = () => {
+  const subcounter = (event) => {
     if (counter < 1) {
       return
     }
+    event.stopPropagation()
     setCounter(counter - 1)
   }
   const handleModal = () => {
@@ -65,7 +67,48 @@ const ListItem = ({ data, updatetitle }) => {
           )}
         </div>
       </div>
-      {showmodal && <Modal onclose={handleModal} />}
+      {showmodal && (
+        <Modal onclose={handleModal}>
+          <div className="item-card__modal">
+            <div className="img-wrap">
+              <img
+                className={"img-fluid"}
+                src={`/assets/${data.thumbnail}`}
+                alt={data.title}
+              />
+            </div>
+            <div className="meta">
+              <h3>{data.title}</h3>
+              <div className={"pricing"}>
+                <span>₹{data.discountedPrice}</span>
+                <small>
+                  <strike>₹{data.price}</strike>
+                </small>
+              </div>
+              <p>{data.description}</p>
+              {counter < 1 ? (
+                <button
+                  className={"cart cart-add card-add__modal"}
+                  onClick={addcounter}
+                >
+                  <span>Add to Cart</span>
+                  <img src={AddToCartIcon} alt="Cart Icon" />
+                </button>
+              ) : (
+                <div className="cartaddon">
+                  <button onClick={subcounter}>
+                    <span>-</span>
+                  </button>
+                  <span className="white">{counter}</span>
+                  <button>
+                    <span onClick={addcounter}>+</span>
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </Modal>
+      )}
     </>
   )
 }

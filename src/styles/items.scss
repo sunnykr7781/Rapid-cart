@@ -28,6 +28,43 @@
       }
     }
   }
+
+  &__modal {
+    width: 95%;
+    padding-right: 0px;
+    display: flex;
+    .img-wrap {
+      flex-basis: 40%;
+      min-width: 40%;
+    }
+    .meta {
+      flex-grow: 60%;
+      h3 {
+        margin-top: 12px;
+        margin-bottom: 4px;
+        opacity: 0.8;
+      }
+      p {
+        font-weight: 300;
+        color: grey;
+        font-family: Roboto;
+        font-size: 16px;
+        margin: 12px 22px 13px 0px;
+        line-height: 19px;
+        letter-spacing: 0.5px;
+        text-transform: initial;
+        // margin-top: -1px;
+      }
+    }
+
+    button.cart-add {
+      border-radius: 0px;
+    }
+
+    .cart-addon {
+      justify-content: space-between;
+    }
+  }
 }
 .pricing {
   small {
