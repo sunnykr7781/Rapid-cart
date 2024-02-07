@@ -1,7 +1,7 @@
 import { useState } from "react"
 import AddToCartIcon from "../../../assets/add_cart.svg"
 import Modal from "../../UI/Modal"
-const ListItem = ({ data, updatetitle }) => {
+const ListItem = ({ data, updatetitle, onadd, onremove }) => {
   // console.log(data)
 
   const [showmodal, setShowmodal] = useState(false)
@@ -9,6 +9,7 @@ const ListItem = ({ data, updatetitle }) => {
   const addcounter = (event) => {
     event.stopPropagation()
     setCounter(counter + 1)
+    onadd(data.id)
   }
   const subcounter = (event) => {
     if (counter < 1) {
@@ -16,6 +17,7 @@ const ListItem = ({ data, updatetitle }) => {
     }
     event.stopPropagation()
     setCounter(counter - 1)
+    onremove(data.id)
   }
   const handleModal = () => {
     setShowmodal((e) => !e)
@@ -40,14 +42,14 @@ const ListItem = ({ data, updatetitle }) => {
           </div>
         </div>
         <div>
-          <button
+          {/* <button
             className="buttonn"
             onClick={() => {
               updatetitle(data.id)
             }}
           >
             <span>update title</span>
-          </button>
+          </button> */}
           {/* conditional rendering */}
           {counter > 0 ? (
             <div className="cartaddon">

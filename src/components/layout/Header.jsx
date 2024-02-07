@@ -1,4 +1,4 @@
-const Header = () => {
+const Header = ({ count }) => {
   return (
     <>
       <div className="main">
@@ -15,7 +15,7 @@ const Header = () => {
           </div>
         </div>
         <div className="cart">
-        <span data-items={0}>Cart</span>
+          <span data-items={count}>Cart</span>
           <i class="ri-shopping-cart-2-line"></i>
         </div>
       </div>
