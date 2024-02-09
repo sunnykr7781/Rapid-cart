@@ -1,3 +1,5 @@
+import Cart from "../Cart"
+
 const Header = ({ count }) => {
   return (
     <>
@@ -14,10 +16,7 @@ const Header = ({ count }) => {
             <i class="ri-search-line"></i>
           </div>
         </div>
-        <div className="cart">
-          <span data-items={count}>Cart</span>
-          <i class="ri-shopping-cart-2-line"></i>
-        </div>
+        <Cart count={count} />
       </div>
     </>
   )

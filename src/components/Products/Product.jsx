@@ -18,9 +18,10 @@ const Product = ({ onAddItems, onRemoveItems }) => {
     if (index > -1) {
       let items = [...presentItems]
       items.splice(index, 1)
-      setPresentItems([items])
+      setPresentItems([...items])
       onRemoveItems()
     }
+    // onRemoveItems()
   }
 
   useEffect(() => {

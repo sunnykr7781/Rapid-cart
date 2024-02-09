@@ -3,6 +3,7 @@
 @import "./styles/layout.scss";
 @import "./styles/loader.scss";
 @import "./styles/modal.scss";
+@import "./styles/cart.scss";
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +18,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   // background-color: rgba(0, 0, 0, 0.676) ;
+}
+.img-fluid {
+  max-width: 100%;
+  height: auto;
 }
 
 // code {
