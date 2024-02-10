@@ -7,21 +7,31 @@ const Product = ({ onAddItems, onRemoveItems }) => {
   const [loader, setLoader] = useState(true)
   const [presentItems, setPresentItems] = useState([])
   const handleadditems = (id) => {
-    if (presentItems.indexOf(id) < 0) {
-      setPresentItems([...presentItems, id])
-      onAddItems()
-    }
-    return
+    // if (presentItems.indexOf(id) < 0) {
+    //   setPresentItems([...presentItems, id])
+
+    // }
+    // return
+    let dataa = [...data]
+    let index = dataa.findIndex((i) => i.id === id)
+    dataa[index].quantity += 1
+    setData(dataa)
+    onAddItems(data[index])
   }
   const handleremoveitems = (id) => {
-    let index = presentItems.indexOf(id)
-    if (index > -1) {
-      let items = [...presentItems]
-      items.splice(index, 1)
-      setPresentItems([...items])
-      onRemoveItems()
-    }
-    // onRemoveItems()
+    // let index = presentItems.indexOf(id)
+    // if (index > -1) {
+    //   let items = [...presentItems]
+    //   items.splice(index, 1)
+    //   setPresentItems([...items])
+    //   onRemoveItems()
+    // }
+
+    let dataa = [...data]
+    let index = dataa.findIndex((i) => i.id === id)
+    dataa[index].quantity -= 1
+    setData(dataa)
+    onRemoveItems(data[index])
   }
 
   useEffect(() => {
@@ -34,6 +44,7 @@ const Product = ({ onAddItems, onRemoveItems }) => {
           return {
             ...data,
             id: index,
+            quantity: 0,
           }
         })
         setData(transformedresult)

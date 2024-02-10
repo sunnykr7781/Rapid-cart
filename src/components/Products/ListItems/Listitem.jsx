@@ -5,18 +5,18 @@ const ListItem = ({ data, updatetitle, onadd, onremove }) => {
   // console.log(data)
 
   const [showmodal, setShowmodal] = useState(false)
-  const [counter, setCounter] = useState(0)
+  // const [counter, setCounter] = useState(0)
   const addcounter = (event) => {
     event.stopPropagation()
-    setCounter(counter + 1)
+    // setCounter(counter + 1)
     onadd(data.id)
   }
   const subcounter = (event) => {
-    if (counter < 1) {
-      return
-    }
+    // if (counter < 1) {
+    //   return
+    // }
     event.stopPropagation()
-    setCounter(counter - 1)
+    // setCounter(counter - 1)
     onremove(data.id)
   }
   const handleModal = () => {
@@ -51,12 +51,12 @@ const ListItem = ({ data, updatetitle, onadd, onremove }) => {
             <span>update title</span>
           </button> */}
           {/* conditional rendering */}
-          {counter > 0 ? (
+          {data.quantity > 0 ? (
             <div className="cartaddon">
               <button onClick={subcounter}>
                 <span>-</span>
               </button>
-              <span className="white">{counter}</span>
+              <span className="white">{data.quantity}</span>
               <button>
                 <span onClick={addcounter}>+</span>
               </button>
@@ -88,7 +88,7 @@ const ListItem = ({ data, updatetitle, onadd, onremove }) => {
                 </small>
               </div>
               <p>{data.description}</p>
-              {counter < 1 ? (
+              {data.quantity < 1 ? (
                 <button
                   className={"cart cart-add card-add__modal"}
                   onClick={addcounter}
@@ -101,7 +101,7 @@ const ListItem = ({ data, updatetitle, onadd, onremove }) => {
                   <button onClick={subcounter}>
                     <span>-</span>
                   </button>
-                  <span className="white">{counter}</span>
+                  <span className="white">{data.quantity}</span>
                   <button>
                     <span onClick={addcounter}>+</span>
                   </button>

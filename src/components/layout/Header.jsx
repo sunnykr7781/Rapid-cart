@@ -1,6 +1,6 @@
 import Cart from "../Cart"
 
-const Header = ({ count }) => {
+const Header = ({ count, items }) => {
   return (
     <>
       <div className="main">
@@ -16,7 +16,7 @@ const Header = ({ count }) => {
             <i class="ri-search-line"></i>
           </div>
         </div>
-        <Cart count={count} />
+        <Cart count={count} items={items} />
       </div>
     </>
   )
